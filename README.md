@@ -116,6 +116,7 @@ Proves i exercicis a fer i entregar
     -   
     <img src="img/Sinusiode4000Hz.png" width="480" align="center">
     -
+    
     Amb aquestes imatges podem observar que quant més alta es la freqüència més triangular es la ona. Això és degut al propi mostreig del senyal. A 4000Hz tenim una ona triangulas perque les mostres que agafem per mostrar els 5 primers cicles coincideixen amb els valors més alts i més baixos de la ona.
 
 2. Modifica el programa per considerar com a senyal a analitzar el senyal del fitxer wav que has creat 

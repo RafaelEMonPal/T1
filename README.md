@@ -2,7 +2,7 @@ Primera tasca APA 2023: Anàlisi fitxer de so
 ============================================
 
 ## Nom i cognoms:
-Rafa
+Rafael E Moncayo Palate
 
 
 ## Representació temporal i freqüencial de senyals d'àudio.
@@ -106,12 +106,38 @@ Proves i exercicis a fer i entregar
 1. Reprodueix l'exemple fent servir diferents freqüències per la sinusoide. Al menys considera $f_x = 4$ kHz, a banda d'una
     freqüència pròpia en el marge audible. Comenta els resultats.
 
+    He decidido reproducir el ejemplo a 4 frecuancias diferentes: 220, 1000, 3000, 4000 Hz.
+
+<img src="img/Sinusoide220.png" width="480" align="center">
+
+<img src="img/Sinusoide1000.png" width="480" align="center">
+
+<img src="img/Sinusoide3000.png" width="480" align="center">
+
+<img src="img/Sinusoide4000.png" width="480" align="center">
+
+
+    Con estas imagenes podemos obserbar que cuanto más alta es la frecuencia más trangular es la onda. Esto es debido al propio muestreo de las señal. En 4000 Hz tenemos una onda trangular porque las muestras que tomamos para los cinco primeros coinciden con los valores más altos y más bajos de la onda.
+
 2. Modifica el programa per considerar com a senyal a analitzar el senyal del fitxer wav que has creat 
     (`x_r, fm = sf.read('nom_fitxer.wav')`).
-
+    ```python
+    import sounddevice as sd 
+    audio, frecuencia_muestreo = sf.read('so_exemple1.wav')
+    sd.play(audio, frecuencia_muestreo)
+    plt.figure(0)                             
+    plt.plot(t[0:Ls], audio[0:Ls])               
+    plt.xlabel('t en segons')                 
+    plt.title('5 periodes de la sinusoide')
+    plt.show()
+    ```
     - Insereix a continuació una gràfica que mostri 5 períodes del senyal i la seva transformada.
-
+    <img src="img/Sinwav4000.png" width="480" align="center">
     - Explica el resultat del apartat anterior.
+        
+         Primer s'importa la llibreria sounddevice per poder reproduir el so de l'arxiu i amb el sf.read es llegeix el wav i després amb el sd.play es reprodueix.
+         La grafica com a tal no presenta cap canvi, es mostren 5 períodes d'una senyal de 4k Hz que és amb la última freqüència amb la que hem guardat l'arxiu wav mab el sf.write.
+
 
 3. Modifica el programa per representar el mòdul de la Transformada de Fourier en dB i l'eix d'abscisses en el marge de
     $0$ a $f_m/2$ en Hz.
@@ -133,13 +159,32 @@ Proves i exercicis a fer i entregar
 
 4. Tria un fitxer d'àudio en format wav i mono (el pots aconseguir si en tens amb altres formats amb el programa Audacity). 
     Llegeix el fitxer d'àudio i comprova:
+    ```python
 
+    ```
     - Freqüència de mostratge.
     - Nombre de mostres de senyal.
+    print(x.length())
     - Tria un segment de senyal de 25ms i insereix una gráfica amb la seva evolució temporal.
     - Representa la seva transformada en dB en funció de la freqüència, en el marge $f_m\le f\le f_m/2$.
     - Quines son les freqüències més importants del segment triat?
 
+```python
+    #exercici 4
+x,fm = sf.read('luzbel44.wav') 
+print(fm) #Freqüència de mostratge.
+print(x.length())#Nombre de mostres de senyal.
+
+temps=0.025#segment de senyal de 25ms
+m=int(fm*temps)
+Tm=1/fm
+t=Tm*np.arange(m)
+plt.figure(1)                             
+plt.plot(t[0:m], audio[0:m])               
+plt.xlabel('t en segons')                 
+plt.title('0.025s')
+plt.show()
+```
 
 Entrega
 -------

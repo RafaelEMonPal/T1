@@ -106,18 +106,17 @@ Proves i exercicis a fer i entregar
 1. Reprodueix l'exemple fent servir diferents freqüències per la sinusoide. Al menys considera $f_x = 4$ kHz, a banda d'una
     freqüència pròpia en el marge audible. Comenta els resultats.
 
-    He decidido reproducir el ejemplo a 4 frecuancias diferentes: 220, 1000, 3000, 4000 Hz.
+    He decidit reproduir l'exemple a 4 freqüències diferents: 220, 1000, 3000, 4000 Hz.
 
-<img src="img/Sinusoide220.png" width="480" align="center">
+    <img src="img/Sinusoide220.png" width="480" align="center">
 
-<img src="img/Sinusoide1000.png" width="480" align="center">
+    <img src="img/Sinusoide1000.png" width="480" align="center">
 
-<img src="img/Sinusoide3000.png" width="480" align="center">
+    <img src="img/Sinusoide3000.png" width="480" align="center">
 
-<img src="img/Sinusoide4000.png" width="480" align="center">
+    <img src="img/Sinusoide4000.png" width="480" align="center">
 
-
-    Con estas imagenes podemos obserbar que cuanto más alta es la frecuencia más trangular es la onda. Esto es debido al propio muestreo de las señal. En 4000 Hz tenemos una onda trangular porque las muestras que tomamos para los cinco primeros coinciden con los valores más altos y más bajos de la onda.
+    Amb aquestes imatges podem observar que quant més alta es la freqüència més triangular es la ona. Això és degut al propi mostreig del senyal. A 4000Hz tenim una ona triangulas perque les mostres que agafem per mostrar els 5 primers cicles coincideixen amb els valors més alts i més baixos de la ona.
 
 2. Modifica el programa per considerar com a senyal a analitzar el senyal del fitxer wav que has creat 
     (`x_r, fm = sf.read('nom_fitxer.wav')`).
@@ -132,7 +131,9 @@ Proves i exercicis a fer i entregar
     plt.show()
     ```
     - Insereix a continuació una gràfica que mostri 5 períodes del senyal i la seva transformada.
+
     <img src="img/Sinwav4000.png" width="480" align="center">
+
     - Explica el resultat del apartat anterior.
         
          Primer s'importa la llibreria sounddevice per poder reproduir el so de l'arxiu i amb el sf.read es llegeix el wav i després amb el sd.play es reprodueix.
@@ -159,9 +160,7 @@ Proves i exercicis a fer i entregar
 
 4. Tria un fitxer d'àudio en format wav i mono (el pots aconseguir si en tens amb altres formats amb el programa Audacity). 
     Llegeix el fitxer d'àudio i comprova:
-    ```python
-
-    ```
+    
     - Freqüència de mostratge.
     - Nombre de mostres de senyal.
     print(x.length())
@@ -170,20 +169,20 @@ Proves i exercicis a fer i entregar
     - Quines son les freqüències més importants del segment triat?
 
 ```python
-    #exercici 4
-x,fm = sf.read('luzbel44.wav') 
-print(fm) #Freqüència de mostratge.
-print(x.length())#Nombre de mostres de senyal.
+        #exercici 4
+    x,fm = sf.read('luzbel44.wav') 
+    print(fm) #Freqüència de mostratge.
+    print(x.length())#Nombre de mostres de senyal.
 
-temps=0.025#segment de senyal de 25ms
-m=int(fm*temps)
-Tm=1/fm
-t=Tm*np.arange(m)
-plt.figure(1)                             
-plt.plot(t[0:m], audio[0:m])               
-plt.xlabel('t en segons')                 
-plt.title('0.025s')
-plt.show()
+    temps=0.025#segment de senyal de 25ms
+    m=int(fm*temps)
+    Tm=1/fm
+    t=Tm*np.arange(m)
+    plt.figure(1)                             
+    plt.plot(t[0:m], audio[0:m])               
+    plt.xlabel('t en segons')                 
+    plt.title('0.025s')
+    plt.show()
 ```
 
 Entrega
